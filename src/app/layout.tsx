@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Comfortaa } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const comfortaa = Comfortaa({
+  subsets: ['cyrillic'], 
+  weight: ['400', '700'],
+});
 
 export const metadata: Metadata = {
   title: "Менеджер завдань",
@@ -16,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={comfortaa.className}>{children}</body>
     </html>
   );
 }
