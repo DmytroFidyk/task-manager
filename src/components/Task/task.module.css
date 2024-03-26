@@ -1,0 +1,34 @@
+.container {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 8px;
+}
+
+.task_container {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox {
+    margin-right: 8px;
+    accent-color: #5FBE4E;
+}
+
+.container:hover {
+    border-bottom: 2px solid #5FBE4E;
+}
+
+.checkbox_container {
+
+}
+
+.task_text_container {
+
+}
+
+.remove_button_container {
+
+}
