@@ -1,14 +1,17 @@
 import styles from './task.module.css';
+import Checkbox from '../Checkbox';
+import { RxCross1 } from 'react-icons/rx';
 
 const Task = ({ task }: { task: string}) => {
     return (
         <div className={styles.container}>
             <div className={styles.task_container}>
-                <input className={styles.checkbox} type='checkbox' name='isDone'/>
-                <p>{task}</p>
+                <Checkbox task={task}/>
             </div>
             <div className={styles.remove_button_container}>
-                <button>X</button>
+                <button className={styles.remove_button}>
+                    <RxCross1/>
+                </button>
             </div>
         </div>
     );

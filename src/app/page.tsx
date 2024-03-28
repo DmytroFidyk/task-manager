@@ -9,9 +9,9 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.list}>
           <h2 className={styles.heading}>Список завдань</h2>
-          <Task task='Витерти пил'/>
-          <Task task='Пропилососити'/>
-          <Task task='Доробити проєкт'/>
+          <Task task="Витерти пил"/>
+          <Task task="Доробити проєкт"/>
+          <Task task="Прочитати книгу"/>
         </div>
       </main>
     </>
