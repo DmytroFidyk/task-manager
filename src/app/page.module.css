@@ -1,0 +1,15 @@
+.main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list {
+    width: 50%;
+}
+
+.heading {
+    font-size: 28px;
+    margin: 18px 0px 14px 0px;
+}
