@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+body {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
 main {
   font-size: 20px;
 }

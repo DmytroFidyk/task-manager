@@ -3,9 +3,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { RxCross1 } from 'react-icons/rx';
 
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-
-const Task = ({ id, task }: { id?: number, task: string}) => {
+const Task = ({ task }: { task: string}) => {
     return (
         <div className={styles.container}>
             <div className={styles.task_container}>

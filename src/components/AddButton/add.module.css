@@ -1,0 +1,20 @@
+.add_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: 42px;
+    background-color: #5FBE4E;
+    color: white;
+    font-size: 18px;
+    border: 2px solid #5FBE4E;
+    border-radius: 40px;
+    flex-grow: 2;
+    margin-right: 8px;
+}
+
+.add_button:hover {
+    border: 2px solid #53AA44;
+    background-color: #53AA44;
+    cursor: pointer;
+}
