@@ -1,19 +1,27 @@
 import styles from './modal.module.css';
 import Input from '../Input';
-import { addNewTask } from '../../lib/features/taskList/taskListSlice';
+import { addNewTask, Task } from '../../lib/features/taskList/taskListSlice';
 import { useAppDispatch } from '../../lib/hooks';
 import { useState } from 'react';
 import { RxCross1 } from 'react-icons/rx';
 import AddButton from '../AddButton';
 import CancelButton from '../CancelButton';
+import { v4 as uuidv4 } from 'uuid';
 
 const Modal = (props: { modalWindowStatus: boolean, onClickHandler: (value: boolean) => void }) => {
-    const [newTask, setNewTask] = useState('');
+    const [newTask, setNewTask] = useState<Task>({id: '', description: ''});
 
     const dispatch = useAppDispatch();
 
-    function onChangeHandler (value: string) {
-        setNewTask(value);
+    function onChangeHandler (description: string) {
+        const id = uuidv4();
+
+        const task: Task = {
+            id,
+            description
+        };
+
+        setNewTask(task);
     };
 
     return (
@@ -33,7 +41,6 @@ const Modal = (props: { modalWindowStatus: boolean, onClickHandler: (value: bool
                     <AddButton text={'Додати'} addNewTask={() => dispatch(addNewTask(newTask))}/>
                     <CancelButton text={'Скасувати'} closeModalWindow={() => props.onClickHandler(false)}/>
                 </div>
-                
             </div>
         </div>
     );

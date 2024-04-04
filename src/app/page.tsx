@@ -10,7 +10,7 @@ import Task from '../components/Task';
 import { RootState } from '../lib/store';
 import Button from '../components/Button';
 import Modal from '../components/Modal';
-import { v4 as uuidv4 } from 'uuid';
+
 import { useState } from 'react';
 
 export default function Home() {
@@ -29,7 +29,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.list}>
             <h2 className={styles.heading}>Список завдань</h2>
-            {taskList.map(task => <Task key={uuidv4()} task={task}/>)}
+            {taskList.length > 0 ? taskList.map(task => <Task key={task.id} task={task}/>) : <div>Немає завдань</div>}
         </div>
         <Button buttonText={'Додати завдання'} onClickHandler={openModalWindow}/>
       </main>
