@@ -1,6 +1,6 @@
 import styles from './modal.module.css';
 import Input from '../Input';
-import { addNewTask, Task } from '../../lib/features/taskList/taskListSlice';
+import { addNewTask, TaskModel } from '../../lib/features/taskList/taskListSlice';
 import { useAppDispatch } from '../../lib/hooks';
 import { useState } from 'react';
 import { RxCross1 } from 'react-icons/rx';
@@ -9,16 +9,17 @@ import CancelButton from '../CancelButton';
 import { v4 as uuidv4 } from 'uuid';
 
 const Modal = (props: { modalWindowStatus: boolean, onClickHandler: (value: boolean) => void }) => {
-    const [newTask, setNewTask] = useState<Task>({id: '', description: ''});
+    const [newTask, setNewTask] = useState<TaskModel>({id: '', description: '', isDone: false});
 
     const dispatch = useAppDispatch();
 
     function onChangeHandler (description: string) {
         const id = uuidv4();
 
-        const task: Task = {
+        const task: TaskModel = {
             id,
-            description
+            description,
+            isDone: false
         };
 
         setNewTask(task);
