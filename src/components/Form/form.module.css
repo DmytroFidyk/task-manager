@@ -1,0 +1,58 @@
+.buttons_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cancel_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: 42px;
+    background-color: white;
+    color: #5FBE4E;
+    font-size: 18px;
+    border: 2px solid white;
+    border-radius: 40px;
+    flex-grow: 1;
+}
+
+.cancel_button:hover {
+    border: 2px solid#E9E9E9;
+    background-color: #E9E9E9;
+    color: #53AA44;
+    cursor: pointer;
+}
+
+.add_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: 42px;
+    background-color: #5FBE4E;
+    color: white;
+    font-size: 18px;
+    border: 2px solid #5FBE4E;
+    border-radius: 40px;
+    flex-grow: 2;
+    margin-right: 8px;
+}
+
+.add_button:hover {
+    border: 2px solid #53AA44;
+    background-color: #53AA44;
+    cursor: pointer;
+}
+
+
+.input {
+    border: 2px solid #5FBE4E;
+    height: 48px;
+    font-size: 18px;
+    padding: 0px 12px;
+    border-radius: 8px;
+    margin-top: 8px;
+    margin-bottom: 18px;
+    width: 100%;
+}

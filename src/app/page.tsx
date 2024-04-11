@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { useAppSelector } from '../lib/hooks';
 import { RootState } from '../lib/store';
 
-import Modal from '../components/Modal';
+import ModalWindow from '../components/ModalWindow';
 import Header from '../components/Header';
 import Task from '../components/Task';
 import Button from '../components/Button';
@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <Modal 
+      <ModalWindow 
         modalWindowStatus={modalStatus} 
         onClickHandler={openModalWindow}
       />

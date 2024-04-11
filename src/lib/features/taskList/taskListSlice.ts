@@ -1,11 +1,8 @@
+import { TaskModel } from '@/Models/TaskModel';
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-export interface TaskModel {
-    id: string,
-    description: string,
-    isDone: boolean
-};
+
 
 export interface TaskListState {
     value: TaskModel[],
@@ -20,6 +17,7 @@ export const taskListSlice = createSlice({
     initialState,
     reducers: {
         addNewTask: (state, action: PayloadAction<TaskModel>) => {
+            console.log(action.payload);
             state.value.push(action.payload);
         },
 
