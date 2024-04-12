@@ -21,7 +21,6 @@ export default function Home() {
   };
 
   useEffect(() => {
-    console.log('Save to local');
     localStorage.setItem('tasks', JSON.stringify(taskList));
   }, [taskList]);
 

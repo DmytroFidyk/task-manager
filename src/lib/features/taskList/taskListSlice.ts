@@ -10,9 +10,8 @@ let initialValue: TaskModel[] = [];
 
 if (typeof window !== 'undefined') {
     const tasks: any = localStorage.getItem('tasks');
-    console.log(tasks);
-    initialValue = JSON.parse(tasks);
-    console.log(initialValue);
+    if (tasks !== null)
+        initialValue = JSON.parse(tasks);
 }
 
 const initialState: TaskListState = {
