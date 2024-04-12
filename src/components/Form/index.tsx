@@ -3,9 +3,11 @@ import { FormEvent, useState } from 'react';
 import { addNewTask } from '../../lib/features/taskList/taskListSlice';
 import { useAppDispatch } from '../../lib/hooks';
 import { v4 as uuid } from 'uuid';
+import Alert from '@mui/material/Alert';
 
 const Form = (props: {closeModal: (value: boolean) => void}) => {
     const [inputedValue, setInputedValue] = useState('');
+    const [error, setError] = useState(false);
     console.log(inputedValue);
 
     const dispatch = useAppDispatch();
@@ -16,6 +18,7 @@ const Form = (props: {closeModal: (value: boolean) => void}) => {
 
     return (
         <form onSubmit={onSubmitHandler}>
+            {error && <Alert severity="error">Заповніть поле</Alert>}
             <input
                 type='text'
                 className={styles.input}
@@ -27,11 +30,20 @@ const Form = (props: {closeModal: (value: boolean) => void}) => {
             
             <div className={styles.buttons_container}>
                 <button className={styles.add_button} onClick={() => {
-                    dispatch(addNewTask({id: uuid(), description: inputedValue, isDone: false}));
-                    setInputedValue('');
+                    if (inputedValue !== '') {
+                        dispatch(addNewTask({id: uuid(), description: inputedValue, isDone: false}));
+                        setInputedValue('');
+                        setError(false);
+                    } else {
+                        setError(true);
+                    }
                 }}>Додати</button>
 
-                <button className={styles.cancel_button} onClick={() => {props.closeModal(false)}}>Скасувати</button>
+                <button className={styles.cancel_button} onClick={() => {
+                        props.closeModal(false);
+                        setError(false);
+                    }
+                }>Скасувати</button>
             </div>
         </form>
     );

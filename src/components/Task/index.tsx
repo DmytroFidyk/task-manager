@@ -8,8 +8,8 @@ import Checkbox from '@mui/material/Checkbox';
 import { green } from '@mui/material/colors';
 
 import { RxCross1 } from 'react-icons/rx';
-
-import { TaskModel, deleteTask, markAsDone } from '../../lib/features/taskList/taskListSlice';
+import { TaskModel } from '../../Models/TaskModel';
+import { deleteTask, markAsDone } from '../../lib/features/taskList/taskListSlice';
 
 const Task = ({ task }: { task: TaskModel}) => {
     const [isDone, setIsDone] = useState<boolean>(false);
@@ -17,11 +17,11 @@ const Task = ({ task }: { task: TaskModel}) => {
     const dispatch = useAppDispatch();
     return (
         <div className={styles.container}>
-            <div className={isDone ? styles.task_container_line_through : styles.task_container}>
+            <div className={task.isDone ? styles.task_container_line_through : styles.task_container}>
                 <FormControlLabel control={
                     <Checkbox 
                         size='medium' 
-                        checked={isDone} 
+                        checked={task.isDone} 
                         onChange={() => {
                             dispatch(markAsDone({...task, isDone: !isDone}));
                             setIsDone(isDone => !isDone);

@@ -2,7 +2,7 @@
 
 import styles from './page.module.css';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAppSelector } from '../lib/hooks';
 import { RootState } from '../lib/store';
 
@@ -15,11 +15,15 @@ export default function Home() {
   const [modalStatus, setModalStatus] = useState(false);
 
   const taskList = useAppSelector((state: RootState) => state.taskList.value);
-  console.log(taskList);
 
   const openModalWindow = (value: boolean) => {
       setModalStatus(value);
   };
+
+  useEffect(() => {
+    console.log('Save to local');
+    localStorage.setItem('tasks', JSON.stringify(taskList));
+  }, [taskList]);
 
   return (
     <div className={styles.container}>
