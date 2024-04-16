@@ -23,18 +23,22 @@ const Form = (props: {closeModal: (value: boolean) => void}) => {
                 type='text'
                 className={styles.input}
                 value={inputedValue} 
-                placeholder='Введіть завдання' 
+                placeholder='Введіть завдання'
+                maxLength={50}
                 onChange={(e) => {
                     setInputedValue(e.target.value);
                 }}/>
             
             <div className={styles.buttons_container}>
                 <button className={styles.add_button} onClick={() => {
-                    if (inputedValue !== '') {
-                        dispatch(addNewTask({id: uuid(), description: inputedValue, isDone: false}));
+                    const description = inputedValue.trim();
+                    
+                    if (description !== '') {
+                        dispatch(addNewTask({id: uuid(), description: description, isDone: false}));
                         setInputedValue('');
                         setError(false);
                     } else {
+                        setInputedValue('');
                         setError(true);
                     }
                 }}>Додати</button>
