@@ -53,6 +53,13 @@
     padding: 0px 12px;
     border-radius: 8px;
     margin-top: 8px;
-    margin-bottom: 18px;
+    margin-bottom: 12px;
     width: 100%;
+}
+
+.symbols_count {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    margin-bottom: 12px;
 }

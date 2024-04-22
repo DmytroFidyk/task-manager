@@ -8,13 +8,13 @@ import Alert from '@mui/material/Alert';
 const Form = (props: {closeModal: (value: boolean) => void}) => {
     const [inputedValue, setInputedValue] = useState('');
     const [error, setError] = useState(false);
-    console.log(inputedValue);
 
     const dispatch = useAppDispatch();
 
     const onSubmitHandler = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
     };
+    const inputMaxLength: number = 50;
 
     return (
         <form onSubmit={onSubmitHandler}>
@@ -24,11 +24,13 @@ const Form = (props: {closeModal: (value: boolean) => void}) => {
                 className={styles.input}
                 value={inputedValue} 
                 placeholder='Введіть завдання'
-                maxLength={50}
+                maxLength={inputMaxLength}
                 onChange={(e) => {
                     setInputedValue(e.target.value);
                 }}/>
-            
+
+            <div className={styles.symbols_count}>Кількість символів: {inputedValue.length}/{inputMaxLength}</div>
+
             <div className={styles.buttons_container}>
                 <button className={styles.add_button} onClick={() => {
                     const description = inputedValue.trim();

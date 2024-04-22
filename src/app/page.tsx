@@ -33,8 +33,8 @@ export default function Home() {
       <Header/>
       <main className={styles.main}>
         <div className={styles.list}>
-            <h2 className={styles.heading}>Список завдань</h2>
-            {taskList.length > 0 ? taskList.map(task => <Task key={task.id} task={task}/>) : <div>Немає завдань</div>}
+          <h2 className={styles.heading}>Список завдань</h2>      
+            {taskList.length > 0 ? taskList.map(task => <Task key={task.id} task={task}/>) : <div className={styles.message_text}>Немає завдань</div>}
         </div>
         <Button 
           buttonText={'Додати завдання'} 

@@ -6,3 +6,9 @@
     height: 64px;
     border-bottom: 2px solid #5FBE4E;
 }
+
+@media only screen and (max-width: 425px) {
+    .title > h1 {
+        font-size: 24px;
+    }
+}

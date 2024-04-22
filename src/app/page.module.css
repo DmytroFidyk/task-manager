@@ -5,17 +5,39 @@
 }
 
 .main {
+    height: 100%;
     width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
+    
 }
 
 .list {
     width: 50%;
+    height: 100%;
+    overflow-y: scroll;
+    padding: 24px 0px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.list::-webkit-scrollbar {
+    display: none;
 }
 
 .heading {
-    font-size: 28px;
+    width: 100%;
+    font-size: 24px;
     margin: 18px 0px 14px 0px;
+}
+
+@media only screen and (max-width: 425px) {
+    .heading {
+        font-size: 18px;
+    }
+
+    .message_text {
+        font-size: 16px;
+    }
 }
