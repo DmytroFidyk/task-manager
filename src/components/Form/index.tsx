@@ -4,8 +4,9 @@ import { addNewTask } from '../../lib/features/taskList/taskListSlice';
 import { useAppDispatch } from '../../lib/hooks';
 import { v4 as uuid } from 'uuid';
 import Alert from '@mui/material/Alert';
+import { changeModalWindowStatus } from '../../lib/features/modalWindow/modalWindowSlice';
 
-const Form = (props: {closeModal: (value: boolean) => void}) => {
+const Form = () => {
     const [inputedValue, setInputedValue] = useState('');
     const [error, setError] = useState(false);
 
@@ -46,7 +47,7 @@ const Form = (props: {closeModal: (value: boolean) => void}) => {
                 }}>Додати</button>
 
                 <button className={styles.cancel_button} onClick={() => {
-                        props.closeModal(false);
+                        dispatch(changeModalWindowStatus(false));
                         setError(false);
                     }
                 }>Скасувати</button>

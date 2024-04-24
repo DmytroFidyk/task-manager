@@ -1,8 +1,11 @@
 import styles from './button.module.css';
+import { useAppDispatch } from '../../lib/hooks';
+import { changeModalWindowStatus } from '../../lib/features/modalWindow/modalWindowSlice';
 
-const Button = (props: { buttonText: string, onClickHandler: (value: boolean) => void}) => {
+const Button = (props: { buttonText: string }) => {
+    const dispatch = useAppDispatch();
     return (
-        <button className={styles.button} onClick={() => { props.onClickHandler(true) }}>
+        <button className={styles.button} onClick={() => { dispatch(changeModalWindowStatus(true)); }}>
             { props.buttonText }
         </button>
     );

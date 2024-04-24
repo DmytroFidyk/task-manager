@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import taskListReducer from '../lib/features/taskList/taskListSlice';
+import modalWindowReducer from '../lib/features/modalWindow/modalWindowSlice';
 
 export const makeStore = () => {
     return configureStore({
         reducer: { 
-            taskList: taskListReducer
+            taskList: taskListReducer,
+            modalWindow: modalWindowReducer,
         },
     });
 };

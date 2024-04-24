@@ -3,6 +3,7 @@
 import styles from './page.module.css';
 
 import { useEffect, useState } from 'react';
+
 import { useAppSelector } from '../lib/hooks';
 import { RootState } from '../lib/store';
 
@@ -12,13 +13,7 @@ import Task from '../components/Task';
 import Button from '../components/Button';
 
 export default function Home() {
-  const [modalStatus, setModalStatus] = useState(false);
-
   const taskList = useAppSelector((state: RootState) => state.taskList.value);
-
-  const openModalWindow = (value: boolean) => {
-      setModalStatus(value);
-  };
 
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(taskList));
@@ -26,20 +21,14 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <ModalWindow 
-        modalWindowStatus={modalStatus} 
-        onClickHandler={openModalWindow}
-      />
+      <ModalWindow />
       <Header/>
       <main className={styles.main}>
         <div className={styles.list}>
           <h2 className={styles.heading}>Список завдань</h2>      
             {taskList.length > 0 ? taskList.map(task => <Task key={task.id} task={task}/>) : <div className={styles.message_text}>Немає завдань</div>}
         </div>
-        <Button 
-          buttonText={'Додати завдання'} 
-          onClickHandler={openModalWindow}
-        />
+        <Button buttonText={'Додати завдання'}/>
       </main>
     </div> 
   );
